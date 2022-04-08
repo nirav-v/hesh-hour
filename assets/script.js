@@ -4,33 +4,29 @@ $('#currentDay').append(currentDate);
 
 // add a time block div for each hour until 5pm.
 
-// on click on save btn, a function sets the value of it most recent sibling, the text area el, in local storage with the key as the id (#hour-9..) of its parent div
+// on click on save btn, a function sets the value of its most recent sibling, the text area el, in local storage with the key as the id (#hour-number..) of its parent div
 
-//when the page loads, retrieve the existing array of time block schedule items and display them on the page 
-
-// console.log(scheduleItem)
 var saveBtn = $('.saveBtn')
-var blockInput = (saveBtn.prev().val())
-var blockId = (saveBtn.parent().attr('id'))
-
-blockInput.append = localStorage.getItem(blockId)
-
-for (var i = 0; i < localStorage.length; i ++){
-    console.log(window.localStorage.getItem('blockId'[i]))
-}
     
 saveBtn.on('click', function () {
     // console.log(scheduleItem.val()) // this works?
     blockInput = ($(this).prev().val())
-    console.log(blockInput)
     blockId = ($(this).parent().attr('id'))
-    console.log(blockId)
     localStorage.setItem(blockId, blockInput)
-    
 })
+// select each time block id and select the .description class, setting the val to localstorage.getItem(id key = 'hour-number')
+// making a loop for this with jquery vars this made my brain hurt
 
+$('#hour-9 .description').val(localStorage.getItem('hour-9'))
+$('#hour-10 .description').val(localStorage.getItem('hour-10'))
+$('#hour-11 .description').val(localStorage.getItem('hour-11'))
+$('#hour-12 .description').val(localStorage.getItem('hour-12'))
+$('#hour-13 .description').val(localStorage.getItem('hour-13'))
+$('#hour-14 .description').val(localStorage.getItem('hour-14'))
+$('#hour-15 .description').val(localStorage.getItem('hour-15'))
+$('#hour-16 .description').val(localStorage.getItem('hour-16'))
+$('#hour-17 .description').val(localStorage.getItem('hour-17'))
 
-// // the array of schedule items should be set in local storage
 
 var currentTime =  parseInt(moment().format("H"))
 console.log(currentTime)
@@ -41,7 +37,7 @@ console.log(currentTime)
 // // Else add class 'future' to  it's parent div
 
 var timeBlockEl = $('.time-block')
-
+// adding class to each time block (color in css) based on comparsion between id and current time
 for (var i = 0; i < timeBlockEl.length; i++) {
         var blockTime = parseInt(timeBlockEl[i].id.split("-")[1])
 // if blockTime < currentTime, add class past to timeBlockEl
