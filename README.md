@@ -1,6 +1,6 @@
 # hesh-hour
 
-## This is a daily work task tracker built with HTML, CSS, JavaScript, and jQuery
+## This is a time-based daily work task tracker built with HTML, CSS, JavaScript, jQuery, and Moment.js
  User can type their daily tasks into the text area of each time block, click the corresponding save button, and have their schedule available to retrieve from local storage for viewing and editing even when they refresh the page.
 
 time blocks will change color relative to the current time of day.
